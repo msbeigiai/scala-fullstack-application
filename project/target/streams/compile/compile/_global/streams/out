@@ -1,0 +1,4 @@
+[error] /home/mohsen/Documents/dev/scala-projects/scala-fullstack/project/Dependencies.scala:22:49: ';' expected but ',' found.
+[error]   val ciris = "is.cir" %% "ciris" % cirisVersion,
+[error]                                                 ^
+[error] one error found
