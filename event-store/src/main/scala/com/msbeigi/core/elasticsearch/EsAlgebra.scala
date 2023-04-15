@@ -8,13 +8,13 @@ import org.elasticsearch.client.{RequestOptions, RestHighLevelClient}
 import org.elasticsearch.client.indices.{CreateIndexRequest, GetIndexRequest}
 import org.elasticsearch.common.settings.Settings
 import cats.implicits._
-import org.elasticsearch.action.index.IndexRequest
+import org.elasticsearch.action.index.{IndexRequest, IndexResponse}
 import io.circe.syntax._
 import org.elasticsearch.common.xcontent.XContentType
 
 trait EsAlgebra[F[_]] {
   def createIndex: F[Unit]
-  def store(event: Event): F[Unit]
+  def store(event: Event): F[IndexResponse]
 }
 
 object EsAlgebra {
@@ -33,7 +33,7 @@ object EsAlgebra {
       )
     } yield ()
 
-    def store(event: Event): F[Unit] = Async[F].delay {
+    def store(event: Event): F[IndexResponse] = Async[F].delay {
       restHighLevelClient
         .index(
           new IndexRequest(esConfig.index.value)

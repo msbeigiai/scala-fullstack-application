@@ -7,9 +7,9 @@ do
        --header "Content-Type: application/json" \
        --url 'http://localhost:8080/api/v1/event'\
        --data '{
-                "userName": "Mohsen",
-                "message": "I have completed the server part of the app",
-                "mood": "I feel great today ",
+                "userName": "Grace",
+                "message": "Yes it works",
+                "mood": "I want to shit 👿 ",
                 "planToAchieve": "Tomorrow I want just to sleep"
        }'
 
